@@ -15,9 +15,9 @@
 
 // the arguments to the constructor function should represent the BouncingBall's starting position
 var BouncingBall = function (startingX, startingY) {
-  this.position = new p5.Vector (startingX, startingY);
-  this.direction = p5.Vector.random2D();
-  this.direction.setMag(2);
+  //this.position = new p5.Vector (startingX, startingY);
+  this.startingX = startingX;
+  this.startingY = startingY;
 };
 
 BouncingBall.prototype = {
@@ -25,7 +25,10 @@ BouncingBall.prototype = {
 
   // initialize() is typically only called once, after the object is created.
   initialize: function () {
-
+    this.position = new p5.Vector(this.startingX, this.startingY);
+    this.direction = p5.Vector.random2D();
+    this.direction.setMag(2);
+    // place here instead because as a matter of practice it is a good idea to put p5 code in initialize instead of under the consrtuctor function (var BouncingBall...)
   },
 
   // update() should update the state of the object, moving it and updating any properties
